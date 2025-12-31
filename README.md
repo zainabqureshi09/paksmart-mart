@@ -1,73 +1,218 @@
-# Welcome to your Lovable project
+# PakSmart Mart
 
-## Project info
+PakSmart Mart is a modern e-commerce marketplace platform built for Pakistan, featuring a comprehensive shopping experience with product browsing, cart management, wishlist, admin panel, and seller portal. The platform is built with Next.js App Router, React Router, Supabase, Tailwind CSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Features
 
-## How can I edit this code?
+- **Product Management**: Browse products by categories, search functionality, product details
+- **Shopping Cart**: Add to cart, manage quantities, checkout process
+- **Wishlist**: Save favorite products for later
+- **User Authentication**: Secure authentication with Supabase Auth
+- **Admin Panel**: Manage products, categories, and platform settings
+- **Seller Portal**: Dedicated portal for sellers to manage their products
+- **Order Tracking**: Track order status and delivery
+- **Flash Deals**: Time-limited deals and promotions
+- **Categories**: Organized product categories with subcategories
+- **Responsive Design**: Mobile-first responsive design
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Framework**: Next.js 15 (App Router) + React Router (legacy pages)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Backend**: Supabase (Database, Authentication, Real-time)
+- **State Management**: Zustand, React Query (TanStack Query)
+- **Form Handling**: React Hook Form + Zod validation
+- **Notifications**: Sonner (Toast notifications)
+- **Icons**: Lucide React
+- **Charts**: Recharts
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 📁 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+paksmart-mart/
+├── app/                          # Next.js App Router
+│   ├── auth/                     # Authentication pages
+│   ├── cart/                     # Shopping cart page
+│   ├── product/[id]/             # Product detail pages
+│   ├── products/                 # Products listing
+│   ├── layout.tsx                # Root layout
+│   ├── page.tsx                  # Home page
+│   └── globals.css               # Global styles
+├── src/
+│   ├── components/               # React components
+│   │   ├── admin/                # Admin components
+│   │   ├── ui/                   # shadcn/ui components
+│   │   ├── Header.tsx            # Site header
+│   │   ├── Footer.tsx            # Site footer
+│   │   ├── ProductCard.tsx       # Product card component
+│   │   └── CategoryCard.tsx      # Category card component
+│   ├── pages/                    # React Router pages
+│   │   ├── Index.tsx             # Home page
+│   │   ├── Products.tsx          # Products page
+│   │   ├── ProductDetail.tsx     # Product detail
+│   │   ├── Cart.tsx              # Shopping cart
+│   │   ├── Wishlist.tsx          # Wishlist
+│   │   ├── Admin.tsx              # Admin panel
+│   │   ├── SellerPortal.tsx      # Seller portal
+│   │   ├── Orders.tsx            # Order management
+│   │   ├── TrackOrder.tsx        # Order tracking
+│   │   └── ...                   # Other pages
+│   ├── hooks/                    # Custom React hooks
+│   │   ├── useAuth.tsx           # Authentication hook
+│   │   └── use-mobile.tsx        # Mobile detection
+│   ├── lib/                      # Utilities and helpers
+│   │   ├── supabase/             # Supabase clients
+│   │   │   ├── client.ts         # Browser client
+│   │   │   └── server.ts         # Server client (SSR)
+│   │   ├── cart.ts               # Cart management
+│   │   ├── data.ts               # Mock data and utilities
+│   │   └── utils.ts              # General utilities
+│   ├── integrations/             # Third-party integrations
+│   │   └── supabase/             # Supabase integration
+│   ├── App.tsx                   # React Router setup
+│   └── main.tsx                  # React entry point
+├── middleware.ts                 # Next.js middleware (auth)
+├── tailwind.config.ts            # Tailwind configuration
+├── next.config.mjs               # Next.js configuration
+└── components.json               # shadcn/ui configuration
 ```
 
-**Edit a file directly in GitHub**
+## 🔧 Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env.local` file in the project root:
 
-**Use GitHub Codespaces**
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🚦 Getting Started
 
-## What technologies are used for this project?
+### Prerequisites
 
-This project is built with:
+- Node.js 18+ and npm/yarn/pnpm
+- Supabase account and project
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Installation
 
-## How can I deploy this project?
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd paksmart-mart
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+3. **Set up environment variables**
+   ```bash
+   # Create .env.local file
+   cp .env.local.example .env.local
+   # Edit .env.local with your Supabase credentials
+   ```
 
-Yes, you can!
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📜 Available Scripts
+
+- `npm run dev` - Start Next.js development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🗄️ Database Setup
+
+The project uses Supabase for database and authentication. Make sure to:
+
+1. Set up your Supabase project
+2. Run the migrations from `supabase/migrations/`
+3. Configure authentication providers in Supabase dashboard
+4. Set up the required tables:
+   - `products`
+   - `categories`
+   - `cart`
+   - `wishlist`
+   - `orders`
+   - `users`
+
+## 🎨 Styling
+
+The project uses Tailwind CSS with custom design tokens:
+- **Primary Color**: Professional red
+- **Secondary/Success**: Green
+- **Accent**: Deep blue
+- Custom gradients, shadows, and utilities
+
+Global styles are defined in `src/index.css` and imported via `app/globals.css`.
+
+## 🔐 Authentication
+
+Authentication is handled by Supabase Auth:
+- Email/password authentication
+- Session management via middleware
+- Protected routes for admin and seller portals
+- User roles and permissions
+
+## 🛣️ Routing
+
+The project uses a hybrid routing approach:
+- **Next.js App Router**: New routes in `app/` directory
+- **React Router**: Legacy routes in `src/pages/` (being migrated)
+
+## 📦 Key Dependencies
+
+- `next` - Next.js framework
+- `react` & `react-dom` - React library
+- `@supabase/supabase-js` - Supabase client
+- `@supabase/auth-helpers-nextjs` - Supabase auth helpers
+- `@tanstack/react-query` - Data fetching and caching
+- `react-router-dom` - Client-side routing
+- `tailwindcss` - Utility-first CSS
+- `zustand` - State management
+- `sonner` - Toast notifications
+- `lucide-react` - Icon library
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push your repository to GitHub/GitLab/Bitbucket
+2. Import the repository into Vercel
+3. Set environment variables in Vercel dashboard
+4. Deploy - Vercel will auto-detect Next.js
+
+### Other Platforms
+
+The project can be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Railway
+- DigitalOcean App Platform
+
+## 📝 Notes
+
+- The project is in a hybrid state with both Next.js App Router and React Router
+- Migration from React Router to Next.js App Router is ongoing
+- Some pages still use React Router (`src/pages/`)
+- New features should use Next.js App Router (`app/`)
+
+## 🔄 Migration Status
+
+- ✅ Next.js App Router setup
+- ✅ Supabase integration
+- ✅ Authentication system
+- ✅ Basic pages migrated
+- 🔄 Remaining pages migration in progress
+
+## 📄 License
+
+Proprietary — All rights reserved.
